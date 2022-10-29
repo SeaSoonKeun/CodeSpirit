@@ -5,4 +5,4 @@
     绘图ppt：
     bilibili：
 3. 刷题进度
-   https://shimo.im/sheets/HixP07qWlYQyeNa8/0hMk6
+   https://shimo.im/sheets/HixP07qWlYQyeNa8/0hMk6/
