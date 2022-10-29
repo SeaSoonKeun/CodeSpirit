@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="01_fresh" />
+        <module name="03_improve" />
+        <module name="04_weekly-review" />
+        <module name="05_practice" />
+        <module name="02_basic" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>
