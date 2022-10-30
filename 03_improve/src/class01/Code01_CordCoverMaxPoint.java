@@ -68,7 +68,7 @@ public class Code01_CordCoverMaxPoint {
     public static void main(String[] args) {
         int len = 10;
         int max = 1000;
-        int testTime = 3;
+        int testTime = 1000;
 //        com.gomboclabs.codespirit.improve.class01.Code01_CordCoverMaxPoint m1 = new com.gomboclabs.codespirit.improve.class01.Code01_CordCoverMaxPoint();
         System.out.println("测试开始");
         for (int i = 0; i < testTime; i++) {
