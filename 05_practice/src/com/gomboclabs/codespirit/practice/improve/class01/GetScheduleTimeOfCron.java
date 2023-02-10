@@ -20,7 +20,11 @@ public class GetScheduleTimeOfCron {
 
     public static void main(String[] args) {
         // 1-周日， 2-周一，
+<<<<<<< HEAD
         System.out.println(getCronSchdule("0 1 1 1 * ?"));
+=======
+        System.out.println(getCronSchdule("0 15 10 ? * 2"));
+>>>>>>> origin/main
         System.out.println("********************************");
         System.out.println(getCronSchdule("0 15 10 ? * 2", 10));
     }
