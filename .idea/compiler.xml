@@ -8,10 +8,11 @@
         <outputRelativeToContentRoot value="true" />
         <module name="04_weekly-review" />
         <module name="05_practice" />
-        <module name="practice" />
+        <module name="commonTest" />
         <module name="improve" />
         <module name="01_fresh" />
         <module name="03_improve" />
+        <module name="drillTest" />
         <module name="fresh" />
         <module name="basic" />
         <module name="interview" />
