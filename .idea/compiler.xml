@@ -6,8 +6,6 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="01_fresh" />
-        <module name="03_improve" />
         <module name="04_weekly-review" />
         <module name="05_practice" />
         <module name="commonTest" />
@@ -15,13 +13,6 @@
         <module name="01_fresh" />
         <module name="03_improve" />
         <module name="drillTest" />
-        <module name="fresh" />
-        <module name="basic" />
-        <module name="interview" />
-        <module name="practice" />
-        <module name="improve" />
-        <module name="01_fresh" />
-        <module name="03_improve" />
         <module name="fresh" />
         <module name="basic" />
         <module name="interview" />
