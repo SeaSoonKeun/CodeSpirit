@@ -7,9 +7,24 @@
       <option name="url" value="https://repo.maven.apache.org/maven2" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="ctyun-release-repository" />
+      <option name="name" value="Ctyun Release" />
+      <option name="url" value="https://work.ctyun.cn/repos/repository/maven-public" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="ctyun-snapshot-repository" />
+      <option name="name" value="Ctyun Snapshots" />
+      <option name="url" value="https://work.ctyun.cn/repos/repository/maven-public" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="central" />
       <option name="name" value="Maven Central repository" />
       <option name="url" value="https://repo1.maven.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="https://work.ctyun.cn/repos/repository/maven-public" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="jboss.community" />
