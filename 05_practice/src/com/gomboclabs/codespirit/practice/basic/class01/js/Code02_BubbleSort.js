@@ -1,30 +1,15 @@
-// function selectionSort(arr) {
-//     if (arr === null || arr.length < 2) {
-//         return;
-//     }
-//
-//     for (let i = 0; i < arr.length; i++) {
-//         let minIndex = i;
-//         for (let j = i + 1; j < arr.length; j++) {
-//             if (arr[j] < arr[minIndex]) {
-//                 minIndex = j;
-//             }
-//         }
-//         swap(arr, i, minIndex);
-//     }
-// }
 // 练手
-function selectionSort(arr) {
-    if (arr == null || arr.length < 2) {
-        return;
-    }
+function bubbleSort(arr) {
     for (let i = 0; i < arr.length; i++) {
-        let minIndex = i;
-        for (let j = i + 1; j < arr.length; j++) {
-            minIndex =  arr[j] < arr[minIndex] ? j : minIndex;
+        let isSwapped = false;
+        for (let j = arr.length - 1; j > i ; j--) {
+            if (arr[j] < arr[j-1]) {
+                isSwapped = true;
+                swap(arr, j, j-1);
+            }
         }
-        if (minIndex !== i) {
-            swap(arr, i, minIndex);
+        if (!isSwapped) {
+            break;
         }
     }
 }
@@ -79,7 +64,7 @@ function main() {
     for (let i = 0; i < testTime; i++) {
         const arr1 = generateRandomArray(maxSize, maxValue);
         const arr2 = copyArray(arr1);
-        selectionSort(arr1);
+        bubbleSort(arr1);
         comparator(arr2);
         if (!isEqual(arr1, arr2)) {
             succeed = false;

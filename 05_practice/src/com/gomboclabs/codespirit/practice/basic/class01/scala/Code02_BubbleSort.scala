@@ -1,35 +1,22 @@
+package gomboclabs.codespirit.practice.basic.class01.scala
+
 import scala.util.Random
 
-object Code01_SelectionSort {
-  //  def selectionSort(arr: Array[Int]): Unit = {
-  //    if (arr == null || arr.length < 2) {
-  //      return
-  //    }
-  //
-  //    for (i <- 0 until arr.length) {
-  //      var minIndex = i
-  //      for (j <- i + 1 until arr.length) {
-  //        if (arr(j) < arr(minIndex)) {
-  //          minIndex = j
-  //        }
-  //      }
-  //      swap(arr, i, minIndex)
-  //    }
-  //  }
+object Code02_BubbleSort {
 
   //  练手
-  def selectionSort(arr: Array[Int]): Unit = {
-    if (arr == null || arr.length < 2) {
-      return
-    }
-
-    for (i <- arr.indices) {
-      var minIndex = i
-      for (j <- i + 1 until arr.length) {
-        minIndex = if (arr(j) < arr(minIndex)) j else minIndex
+  def bubbleSort(arr: Array[Int]): Unit = {
+    var swapped = false;
+    for (i <- 0 until arr.length  by 1) {
+      for (j <- arr.length - 1 until i by -1) {
+        if (arr(j) < arr(j - 1)){
+          swapped = true
+          swap(arr, j, j-1)
+        }
       }
-      if (minIndex == i) {
-        swap(arr, i, minIndex)
+      // for (i <- 0 until arr.length - 1 by 1 if !isSorted) {} 可使用if替代
+      if (!swapped) {
+        return
       }
     }
   }
@@ -91,7 +78,7 @@ object Code01_SelectionSort {
       val arr1 = generateRandomArray(maxSize, maxValue)
       val arr2 = copyArray(arr1)
 
-      selectionSort(arr1)
+      bubbleSort(arr1)
       comparator(arr2)
     }
 

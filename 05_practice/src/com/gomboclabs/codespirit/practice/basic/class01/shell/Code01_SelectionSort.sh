@@ -94,7 +94,9 @@ printArray() {
 }
 
 main() {
-  local testTime=50
+start_time=$(date +%s%N)  # 获取起始时间
+
+  local testTime=500000
   local maxSize=100
   local maxValue=100
   local succeed=true
@@ -115,6 +117,11 @@ main() {
   else
     echo "Fucking fucked!"
   fi
+  # 获取结束时间
+  end_time=$(date +%s%N)
+  # 计算时间差
+  duration=$((end_time - start_time))
+  echo "代码执行时间: $(($duration / 1000000)) 毫秒"
 
 ## 示例数组
 #myArray=("apple" "banana" "orange" "grape")

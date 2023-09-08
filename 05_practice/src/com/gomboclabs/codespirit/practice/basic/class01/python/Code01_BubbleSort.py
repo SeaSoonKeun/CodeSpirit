@@ -1,19 +1,20 @@
-def selection_sort(arr):
-    """
-    Sorts the given list using the selection sort algorithm.
+import time
 
-    Parameters:
-    arr (list): The list to be sorted.
-    """
+
+# 练手
+def bubble_sort(arr):
     if arr is None or len(arr) < 2:
         return
 
+    # [0, len(arr) -1)
     for i in range(len(arr)):
-        min_index = i
-        for j in range(i+1, len(arr)):
-            if arr[j] < arr[min_index]:
-                min_index = j
-        arr[i], arr[min_index] = arr[min_index], arr[i]
+        is_swapped = False
+        for j in range(len(arr) - 1, 0, -1):
+            if arr[j] < arr[j-1]:
+                swap(arr, j, j-1)
+                is_swapped = True
+            if not is_swapped:
+                break
 
 def swap(arr, i, j):
     """
@@ -26,6 +27,7 @@ def swap(arr, i, j):
     """
     arr[i], arr[j] = arr[j], arr[i]
 
+
 def comparator(arr):
     """
     Sorts the given list using the built-in sort function for comparison.
@@ -34,6 +36,7 @@ def comparator(arr):
     arr (list): The list to be sorted.
     """
     arr.sort()
+
 
 def generate_random_array(max_size, max_value):
     """
@@ -50,6 +53,7 @@ def generate_random_array(max_size, max_value):
     arr = [random.randint(-max_value, max_value) for _ in range(random.randint(0, max_size))]
     return arr
 
+
 def copy_array(arr):
     """
     Creates a copy of the given list.
@@ -61,6 +65,7 @@ def copy_array(arr):
     list: A copy of the original list.
     """
     return arr.copy()
+
 
 def is_equal(arr1, arr2):
     """
@@ -75,6 +80,7 @@ def is_equal(arr1, arr2):
     """
     return arr1 == arr2
 
+
 def print_array(arr):
     """
     Prints the elements of the list.
@@ -84,8 +90,10 @@ def print_array(arr):
     """
     print(" ".join(map(str, arr)))
 
+
 def main():
-    test_time = 50
+    start_time = time.time()
+    test_time = 500000
     max_size = 100
     max_value = 100
     succeed = True
@@ -93,7 +101,7 @@ def main():
     for _ in range(test_time):
         arr1 = generate_random_array(max_size, max_value)
         arr2 = copy_array(arr1)
-        selection_sort(arr1)
+        bubble_sort(arr1)
         comparator(arr2)
         if not is_equal(arr1, arr2):
             succeed = False
@@ -101,6 +109,11 @@ def main():
             print_array(arr2)
             break
     print("Nice!" if succeed else "Fucking fucked!")
+    end_time = time.time()
+    execution_time = end_time - start_time
+
+    print(f"执行时间：{execution_time}秒")
+
 
 if __name__ == "__main__":
     main()

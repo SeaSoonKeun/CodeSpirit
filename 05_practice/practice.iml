@@ -5,4 +5,12 @@
       <sourceFolder url="file://$MODULE_DIR$/src/com" isTestSource="false" />
     </content>
   </component>
+  <component name="Go" enabled="true" />
+  <component name="GoLibraries">
+    <option name="urls">
+      <list>
+        <option value="file://$MODULE_DIR$/../../../Installed Program" />
+      </list>
+    </option>
+  </component>
 </module>

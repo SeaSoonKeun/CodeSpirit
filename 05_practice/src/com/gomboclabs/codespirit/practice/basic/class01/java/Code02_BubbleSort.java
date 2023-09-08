@@ -1,32 +1,55 @@
 package gomboclabs.codespirit.practice.basic.class01.java;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.Arrays;
 
-public class Code01_SelectionSort {
+/**
+ * @author xucg
+ * @version 1.0
+ * Created on 2023/9/8 - 09 - 08
+ * description:
+ */
+public class Code02_BubbleSort {
 
-    public static void selectionSort(int[] arr) {
-    // 特殊情况处理
-        if (arr == null || arr.length < 2) {
-            return;
-        }
-        // 其实底层也是利用双指针，一个指针始终指向minIndex，另一个指针遍历变化
-        int minIndex;
+    private static final Logger log = LogManager.getLogger(Code02_BubbleSort.class);
+
+    // execution time: 4344
+    // public static void bubbleSortNotOptimized(int[] arr) {
+    //     for (int i = 0; i < arr.length; i++) {
+    //         for (int j = arr.length - 1; j > i; j--) {
+    //             if (arr[j] < arr[j - 1]) {
+    //                 swap(arr, j, j - 1);
+    //             }
+    //         }
+    //     }
+    // }
+
+    // 优化后的算法，记录上一次冒泡是否交换，判断后面是否还进行冒泡
+    // execution time: 4206 4069ms
+    public static void bubbleSort(int[] arr) {
+        boolean swapped;
         for (int i = 0; i < arr.length; i++) {
-            // 记录此次循环最小数的index
-            minIndex = i;
-            for (int j = i + 1; j < arr.length; j++) {
-                minIndex = arr[j] < arr[minIndex] ? j : minIndex;
+            swapped = false;
+            for (int j = arr.length - 1; j > i; j--) {
+                if (arr[j] < arr[j - 1]) {
+                    swap(arr, j, j - 1);
+                    swapped = true;
+                }
             }
-            swap(arr, i, minIndex);
+            if (!swapped) {
+                log.debug("No more swaps needed. Exiting loop.");
+                break;
+            }
         }
-
-    //
     }
 
+    // 交换arr的i和j位置上的值
     public static void swap(int[] arr, int i, int j) {
-        int tmp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = tmp;
+        arr[i] = arr[i] ^ arr[j];
+        arr[j] = arr[i] ^ arr[j];
+        arr[i] = arr[i] ^ arr[j];
     }
 
     // for test
@@ -36,12 +59,8 @@ public class Code01_SelectionSort {
 
     // for test
     public static int[] generateRandomArray(int maxSize, int maxValue) {
-        // Math.random()   [0,1)
-        // Math.random() * N  [0,N)
-        // (int)(Math.random() * N)  [0, N-1]
         int[] arr = new int[(int) ((maxSize + 1) * Math.random())];
         for (int i = 0; i < arr.length; i++) {
-            // [-? , +?]
             arr[i] = (int) ((maxValue + 1) * Math.random()) - (int) (maxValue * Math.random());
         }
         return arr;
@@ -91,7 +110,7 @@ public class Code01_SelectionSort {
 
     // for test
     public static void main(String[] args) {
-        long startTime = System.currentTimeMillis();
+        Long startTime = System.currentTimeMillis();
         int testTime = 500000;
         int maxSize = 100;
         int maxValue = 100;
@@ -99,23 +118,19 @@ public class Code01_SelectionSort {
         for (int i = 0; i < testTime; i++) {
             int[] arr1 = generateRandomArray(maxSize, maxValue);
             int[] arr2 = copyArray(arr1);
-            selectionSort(arr1);
+            bubbleSort(arr1);
             comparator(arr2);
             if (!isEqual(arr1, arr2)) {
                 succeed = false;
-                printArray(arr1);
-                printArray(arr2);
                 break;
             }
         }
         System.out.println(succeed ? "Nice!" : "Fucking fucked!");
-        long endTime = System.currentTimeMillis();
-        long executionTime = endTime - startTime;
-        System.out.println("执行时间：" + executionTime + "毫秒");
+        Long endTime = System.currentTimeMillis();
+        System.out.println("execution time: " + (endTime - startTime) + "ms");
         // int[] arr = generateRandomArray(maxSize, maxValue);
         // printArray(arr);
-        // selectionSort(arr);
+        // bubbleSort(arr);
         // printArray(arr);
     }
-
 }
