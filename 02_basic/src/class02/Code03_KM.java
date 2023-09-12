@@ -133,7 +133,10 @@ public class Code03_KM {
 		int range = 30;
 		int testTime = 100000;
 		int max = 9;
+		// 打印测试开始的时间
 		System.out.println("测试开始");
+		Long start = System.currentTimeMillis();
+		System.out.println("开始时间：" + start);
 		for (int i = 0; i < testTime; i++) {
 			int a = (int) (Math.random() * max) + 1; // a 1 ~ 9
 			int b = (int) (Math.random() * max) + 1; // b 1 ~ 9
@@ -154,6 +157,10 @@ public class Code03_KM {
 			}
 		}
 		System.out.println("测试结束");
+		Long end = System.currentTimeMillis();
+		System.out.println("结束时间："+ end);
+		System.out.println("耗时:"+(end-start)/1000 + "s");
+
 	}
 
 }
